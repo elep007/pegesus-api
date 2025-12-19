@@ -11,23 +11,23 @@ import getStatusRoutes from './routes/getstatus';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-// const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:3000';
+const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:4200';
 
-// // Middleware
-// app.use(cors({
-//   origin: CORS_ORIGIN,
-//   credentials: true,
-// }));
+// Middleware
+app.use(cors({
+  origin: "*",
+  credentials: true,
+}));
 
 // Configure CORS options to only allow requests from the specified origin
-const corsOptions = {
-  //origin: API_URL,
-  origin: "*",
-  // credentials: true, // Allow credentials (cookies) to be sent
-  allowedHeaders: ["Content-Type", "Authorization", "x-access-token"],
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   //origin: API_URL,
+//   origin: "*",
+//   credentials: true, // Allow credentials (cookies) to be sent
+//   // allowedHeaders: ["Content-Type", "Authorization", "x-access-token"],
+//   // optionsSuccessStatus: 200,
+// };
+// app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
